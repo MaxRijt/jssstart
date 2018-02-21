@@ -36,21 +36,21 @@ function Vault(code, elem_id) {
         this.testCode();
         if(!isSafe) return null;
         _(elem_id).innerHTML += `
-            <div class="vaultContainer">
-              <h1 id="Main-Title">Vault</h1>
+            <div class="ContainerVault">
+              <h1 id="Main-Header">JavaScript Vault</h1>
                 <div id="${elem_id}-green-light" class="light green"></div>
                 <div id="${elem_id}-red-light" class="light red"></div>
                 <div class="clearfix"></div>
 
                 <h3 id="${elem_id}-enteredCode" class="entered-code">${"-".repeat(code.length)}</h3>
-                <div class="littleHack">
-                    <p id="${elem_id}-notif" class="vault-notif">&nbsp;</p>
+                <div class="GuessCode">
+                    <p id="${elem_id}-notif" class="GoodCodeOrWrongCode">&nbsp;</p>
                     <div class="vault-buttons">
                         <button onclick="${elem_id}.buttonPress(this)" value="1">1</button>
                         <button onclick="${elem_id}.buttonPress(this)" value="2">2</button>
                         <button onclick="${elem_id}.buttonPress(this)" value="3">3</button>
                     </div>
-                    <p id="${elem_id}-stats" class="vault-notif">Times correct: 0 &middot; Times incorrect: 0</p>
+                    <p id="${elem_id}-stats" class="GoodCodeOrWrongCode">Times correct: 0 &middot; Times incorrect: 0</p>
                 </div>
             </div>
         `;
@@ -75,17 +75,17 @@ function Vault(code, elem_id) {
             let flag = enteredCode[0] == correctCode[1] && enteredCode[1] == correctCode[0] && enteredCode[2] == correctCode[0];
             if(flag) {
                 player.pause();
-                player.src = "audio/good.wav";
+                player.src = "audio/good.mp3";
                 player.play();
-                blink("#" + elem_id + "-green-light", 9, 200);
-                _(elem_id + "-notif").innerHTML = "Code is correct";
+                blink("#" + elem_id + "-green-light", 18, 100);
+                _(elem_id + "-notif").innerHTML = "Code is good";
                 countCorrect++;
             }
             else {player.pause();
                 player.src = "audio/wrong.mp3";
                 player.play();
-                blink("#" + elem_id + "-red-light", 9, 200);
-                _(elem_id + "-notif").innerHTML = "Code is incorrect";
+                blink("#" + elem_id + "-red-light", 18, 100);
+                _(elem_id + "-notif").innerHTML = "Code is wrong";
                 countWrong++;
             }
             _(elem_id + "-stats").innerHTML = `Times correct: ${countCorrect} &middot; Times incorrect: ${countWrong}`;
@@ -103,6 +103,31 @@ function Vault(code, elem_id) {
         }
     };
 
+}
+
+/**
+ * This makes the element flash it's color
+ * @param elem the element id that you want to flash
+ * @param times how many times it should flash
+ *  keep in mind that it will flash that amount on and that amount off
+ * @param speed the speed that you want to have the flash do it's thing in ms
+ */
+function blink(elem, times, speed) {
+    if (times > 0 || times < 0) {
+        if ($(elem).hasClass("blink")) $(elem).removeClass("blink");
+        else $(elem).addClass("blink");
+    }
+
+    clearTimeout(() => {
+        blink(elem, times, speed);
+    });
+
+    if (times > 0 || times < 0) {
+        setTimeout(() => {
+            blink(elem, times, speed);
+        }, speed);
+        times -= .5;
+    }
 }
 
 /**

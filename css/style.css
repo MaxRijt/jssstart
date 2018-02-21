@@ -1,5 +1,6 @@
 body {
     background-image: url("../images/Background.jpg");
+    font-family: Impact, Charcoal, sans-serif;
 }
 
 .container {
@@ -8,7 +9,11 @@ body {
     align-items: center;
 }
 
-.vaultContainer {
+.p-30 {
+   width: 30%;
+}
+
+.ContainerVault {
     width: 400px;
     height: 360px;
     background: #5b6463;
@@ -16,29 +21,29 @@ body {
     margin-top: 50px;
 }
 
-#Main-Title {
+#Main-Header {
   text-align: center;
   font-size: 35px;
 }
 
-.vaultContainer .light {
+.ContainerVault .light {
     background: black;
     width: 200px;
     float: left;
     height: 50px;
 }
 
-.vaultContainer .light.red {
+.ContainerVault .light.red {
     background: darkred;
     filter: brightness(50%);
 }
 
-.vaultContainer .light.green {
+.ContainerVault .light.green {
     background: darkgreen;
     filter: brightness(50%);
 }
 
-.vaultContainer .light.blink {
+.ContainerVault .light.blink {
     -webkit-filter: brightness(100%);
     filter: brightness(100%);
 }
@@ -57,7 +62,7 @@ body {
     height: 65px;
 }
 
-.littleHack {
+.GuessCode {
     width: 100%;
 }
 
@@ -78,7 +83,7 @@ body {
     border: black 1px solid;
     margin: 3px;
 }
-.vault-notif {
+.GoodCodeOrWrongCode {
     color: white;
     text-align: center;
 }
