@@ -1,0 +1,104 @@
+body {
+    background-image: url("../images/Background.jpg");
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+.container {
+    margin: 20px auto 0 auto;
+    width: 80%;
+    align-items: center;
+}
+
+.p-30 {
+   width: 30%;
+}
+
+.ContainerVault {
+    width: 400px;
+    height: 400px;
+    background: #5b6463;
+    padding: 3px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+#Main-Header {
+  text-align: center;
+  font-size: 35px;
+}
+
+.ContainerVault .light {
+    background: black;
+    width: 200px;
+    float: left;
+    height: 50px;
+}
+
+.ContainerVault .light.red {
+    background: darkred;
+    filter: brightness(50%);
+    border-radius: 0px 15px 15px 0px;
+}
+
+.ContainerVault .light.green {
+    background: darkgreen;
+    filter: brightness(50%);
+    border-radius: 15px 0px 0px 15px;
+}
+
+.ContainerVault .light.blink {
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+}
+
+.clearfix {
+    clear: both;
+}
+
+.entered-code {
+    color: green;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    margin: 10px auto;
+    background: black;
+    height: 75px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+<<<<<<< HEAD
+.entered-code h3 {
+  margin-top: 20px;
+}
+
+=======
+>>>>>>> master
+.GuessCode {
+    width: 100%;
+}
+
+.vault-buttons {
+    width: 176px;
+    margin: 10px auto 0 auto;
+    font-size: 20px;
+}
+
+.vault-buttons > button.null-btn {
+    width: 170px;
+}
+
+.vault-buttons > button {
+    background: #12a320;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    width: 50px;
+    height: 50px;
+    border: black 1px solid;
+    margin: 3px;
+    border-radius: 5px;
+}
+.GoodCodeOrWrongCode {
+    color: white;
+    text-align: center;
+}
